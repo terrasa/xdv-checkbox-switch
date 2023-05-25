@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <style>
+    :root {
+  --text-base: 16px;
+
+  --page:       #eff4f6;
+  --page-light: #ffffff;
+  --page-dark:  #f5f8fa;
+  --grey-primary:      #4a4a4a;  
+  --grey-primary--20:  #dbdada;
+  --grey-primary--10:  #ededed;
+  --grey-primary--6:   #f4f4f4;
+  --grey-primary--2:   #fbfbfb;
+  --grey-secondary:    #5e5e5e;
+  --grey-tertiary:     #707070; 
+  --grey-inactive:     #bcbcbc;
+  --msg-red:          #ff7764;
+  --msg-orange:       #ffae64;
+  --msg-green:        #50e28b; 
+  --soft-excel:       #18723e;
+  --soft-word:        #225fb8;
+  --soft-ppt:         #9a3524;
+
+  --client-primary:            #27147a;
+  --client-primary--hover:     #361999;
+  --client-secondary:          #29b1b3;
+  --client-secondary--hover:   #007991;
+  --client-tertiary:           #293e67;
+  --client-tertiary-2:         #003780;
+  --client-tertiary-3:         #137bb6;
+  --client-tertiary-4:         #00acd0;
+  --client-tertiary-5:         #56a08c;
+  --client-tertiary-6:         #643588;
+  --client-tertiary-7:         #93347f;
+  --client-tertiary-8:         #f45d69;
+  --client-tertiary-9:         #ff9505;
+  --client-tertiary-10:        #f06543;
+
+  --white: #fff;
+
+  --bg-gap-color:  var(--grey-primary--10);
+  --text-color: var(--grey-primary);
+  --icon-color: var(--grey-secondary);
+
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: var(--text-base, 16px);
+
+  color: var(--text-color);
+
+}
+    body {
+      background: #fafafa;
+
+      .flex {
+        display: flex;
+      
+      }
+      .gap-16 {
+        gap: 1rem;
+      
+    }
+
+    .gap-8 {
+        gap: 0.5rem;
+      }
+
+      .flex-col {
+        flex-direction: column;
+      }
+
+      .p-16 {
+        padding: 1rem
+      }
+
+      .p-8 {
+        padding: 0.5rem
+      }
+      .absolute {
+        position: absolute;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="demo"></div>
+
+  <script type="module">
+    import { html, render } from 'lit';
+    import '../xdv-checkbox-switch.js';
+
+    const header = 'Hello owc World!';
+    render(
+      html`
+      <div class='relative'>
+        <div class='flex gap-16 flex-col p-16'>
+          <xdv-checkbox-switch
+            data-check-id='carousel_b'
+            data-value-false='urls900'
+            data-value-true='urls900_random'
+            checked
+          >  
+          </xdv-checkbox-switch>
+          <xdv-checkbox-switch
+            data-check-id='carousel_a'
+            data-switch-bar-bg='var(--client-tertiary-9)'
+            data-switch-item-radius='1rem'
+            data-switch-item-initial-position='0rem -0.375rem'
+            data-switch-item-checked-position='1.5rem -0.375rem'
+            data-switch-bar-height='0.5rem'
+            data-switch-item-checked-bg='#df5c16'
+            data-value-false='urls900_2'
+            data-value-true='urls900_random'
+          >
+            <p slot='description'>Imagenes fijas o random</p>
+          </xdv-checkbox-switch>
+          <xdv-checkbox-switch
+            data-check-id='carousel_c'
+            
+            data-value-false='urls900'
+            data-value-true='urls900_random'
+            checked
+          >  
+          </xdv-checkbox-switch>
+        </div>
+      </div>
+      `,
+      document.querySelector('#demo')
+    );
+  </script>
+</body>
+</html>
