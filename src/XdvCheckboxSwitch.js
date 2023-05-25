@@ -1,29 +1,27 @@
 import { LitElement, html, css } from 'lit'
+// import { XdvStringToKebabCase } from '../mixins/XdvStringToKebabCase'
+// import { XdvSetCustomPropertiesFromAttributesMixin } from '../mixins/XdvSetCustomPropertiesFromAttributesMixin'
 
 export class XdvCheckboxSwitch extends LitElement {
   static styles = [
     css`
       :host {
-        display: flex;
-        align-items: center;
+        /*display: flex;
+        align-items: center;*/
         position: relative;
       }
 
-      :host input {
-        position: absolute;
-        appearance: none;
-        width: var(--xdv-switch-bar-width, 2.75rem);
-        height: var(--xdv-switch-bar-height, 1.5rem);
-        margin: 0;
-        cursor: pointer;
+      .sw__container {
+        display: flex;
+        align-items: center;
       }
 
-      :host label {
+      .sw__container span {
         padding-left: 0.5rem;
         cursor: pointer;
       }
 
-      .sw__continer {
+      .sw__body {
         display: block;
         width: var(--xdv-switch-bar-width, 2.75rem);
         height: var(--xdv-switch-bar-height, 1.5rem);
@@ -50,6 +48,7 @@ export class XdvCheckboxSwitch extends LitElement {
       } 
 
       ::slotted(p) {
+        margin: 0;
         color: var(--text-color);
       } 
     `
@@ -71,7 +70,7 @@ export class XdvCheckboxSwitch extends LitElement {
   constructor () {
     super()
 
-    this.id = null
+    this.id = false
     this.checked = false
     this.loaded = false
     this.value = ''
@@ -81,11 +80,12 @@ export class XdvCheckboxSwitch extends LitElement {
 
   connectedCallback() {
     super.connectedCallback();
-    
+  
   }
 
   firstUpdated () {
-    this.id = this.dataset.checkId
+    this.id = this.dataset.checkId || this.xdvRandomID()
+
     this.isLabel = this.querySelector("[slot='description']")
     this.xdvToggleCheckbox ()
     //this.xdvSetCustomProperties ('switch')
@@ -110,13 +110,20 @@ export class XdvCheckboxSwitch extends LitElement {
     this.dispatchEvent(xdvCheckboxToggle)
   }
 
+  xdvRandomID () {
+    const randomId = Math.random()
+    const alphanumericId = randomId.toString(36).slice(2)
+    return alphanumericId
+  }
+
   render () {
     return html`
-      <div class='sw__continer'>
-        <div class='sw__item'></div>
+      <div class='sw__container' ?loaded=${this.loaded} @click=${this.xdvToggleCheckbox}>
+        <div class="sw__body">
+          <div class='sw__item'></div>
+        </div>
+        ${ this.isLabel && html`<span> <slot name='description'></slot> </span>`}
       </div>
-      <input type="checkbox" id='check_toggle' name='check_toggle' ?loaded=${this.loaded} @input=${this.xdvToggleCheckbox}>
-      ${ this.isLabel && html`<label for='check_toggle'> <slot name='description'></slot> </label>`}
     `
   }
 }
