@@ -96,7 +96,7 @@
     render(
       html`
       <div class='relative'>
-        <div class='flex gap-16 flex-col p-16'>
+        <div class='flex gap-16 p-16'>
           <xdv-checkbox-switch
             data-value-false='urls900'
             data-value-true='urls900_random'
@@ -118,10 +118,21 @@
           </xdv-checkbox-switch>
           <xdv-checkbox-switch
             data-check-id=''
-            
+            data-switch-bar-bg-checked=var(--soft-excel)
+            data-switch-item-bg='#fff'
+            data-switch-item-bg-checked='rgb(88, 236, 30)'
             data-value-false='urls900'
             data-value-true='urls900_random'
+            disabled
+          >  
+          </xdv-checkbox-switch>
+          <xdv-checkbox-switch
+            data-check-id=''
+            data-switch-bar-bg-checked=var(--soft-excel)
+            data-switch-item-bg='#fff'
+            data-switch-item-bg-checked='rgb(88, 236, 30)'
             checked
+            disabled
           >  
           </xdv-checkbox-switch>
         </div>

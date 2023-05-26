@@ -6,8 +6,8 @@ export class XdvCheckboxSwitch extends LitElement {
   static styles = [
     css`
       :host {
-        /*display: flex;
-        align-items: center;*/
+        display: inline-block;
+        /*align-items: center;*/
         position: relative;
       }
 
@@ -28,6 +28,7 @@ export class XdvCheckboxSwitch extends LitElement {
         box-sizing: border-box;
         border-radius: var(--xdv-switch-bar-radius, 1.5625rem);
         background-color: var(--xdv-switch-bar-bg, var(--grey-inactive));
+        cursor: pointer;
       }
       
       .sw__item {
@@ -43,8 +44,21 @@ export class XdvCheckboxSwitch extends LitElement {
       }
   
       :host([checked]) .sw__item {
-        background-color: var(--xdv-switch-item-checked-bg, var(--soft-excel));
+        background-color: var(--xdv-switch-item-bg-checked, var(--soft-excel));
         translate: var(--xdv-switch-item-checked-position, 1.375rem 0.125rem);
+      }
+
+      :host([checked]) .sw__body {
+        background-color: var(--xdv-switch-bar-bg-checked, var(--grey-inactive));
+      }
+
+      :host([disabled]) .sw__body {
+        opacity: 0.5;
+        cursor: default;
+      } 
+
+      :host([disabled]) .sw__container {
+        pointer-events: none;
       } 
 
       ::slotted(p) {
@@ -60,6 +74,10 @@ export class XdvCheckboxSwitch extends LitElement {
         type: Boolean,
         reflect: true
       },
+      disabled: {
+        type: Boolean,
+        reflect: true
+      },
       value: { type: String },
       id: { type: String },
       loaded: { type: Boolean },
@@ -72,15 +90,11 @@ export class XdvCheckboxSwitch extends LitElement {
 
     this.id = false
     this.checked = false
+    this.disabled = false
     this.loaded = false
     this.value = ''
     this.isLabel = false
     this.apiValue = ''
-  }
-
-  connectedCallback() {
-    super.connectedCallback();
-  
   }
 
   firstUpdated () {
@@ -118,7 +132,7 @@ export class XdvCheckboxSwitch extends LitElement {
 
   render () {
     return html`
-      <div class='sw__container' ?loaded=${this.loaded} @click=${this.xdvToggleCheckbox}>
+      <div class='sw__container' ?disabled=${this.getAttribute('disabled')} ?loaded=${this.loaded} @click=${this.xdvToggleCheckbox}>
         <div class="sw__body">
           <div class='sw__item'></div>
         </div>
