@@ -92,8 +92,8 @@ export class XdvCheckboxSwitch extends LitElement {
     this.checked = false
     this.disabled = false
     this.loaded = false
-    this.value = ''
     this.isLabel = false
+    this.value = ''
     this.apiValue = ''
   }
 
@@ -116,6 +116,7 @@ export class XdvCheckboxSwitch extends LitElement {
       bubbles: true,
       composed: true,
       detail: {
+        checked: this.checked,
         value: this.value,
         apiValue: this.apiValue,
         id: this.id
