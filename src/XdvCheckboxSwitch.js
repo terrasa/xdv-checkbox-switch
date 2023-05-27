@@ -107,7 +107,7 @@ export class XdvCheckboxSwitch extends LitElement {
 
   xdvToggleCheckbox () {    
     this.loaded
-    ? this.value = this.checked = !this.checked
+    ? this.checked = this.checked = !this.checked
     : (this.loaded = true, this.value = this.checked)
     
     this.value = this.checked ? `${this.dataset.valueTrue}` : `${this.dataset.valueFalse}`
