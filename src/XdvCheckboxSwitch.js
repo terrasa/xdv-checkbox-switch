@@ -119,7 +119,8 @@ export class XdvCheckboxSwitch extends LitElement {
         checked: this.checked,
         value: this.value,
         apiValue: this.apiValue,
-        id: this.id
+        id: this.id,
+        checkedItem: this
       }
     })
     this.dispatchEvent(xdvCheckboxToggle)
