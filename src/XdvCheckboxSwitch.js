@@ -129,7 +129,7 @@ export class XdvCheckboxSwitch extends LitElement {
   }
 
   xdvSetSwitchFalse (e) {
-    this.checked = !e.disabled.checked
+    this.checked = !e.detail.checked
     this.xdvToggleCheckbox()
 
   }
