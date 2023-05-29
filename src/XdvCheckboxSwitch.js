@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit'
-import '@xiul/xdv-string-to-kebab-case-mixin'
-import '@xiul/xdv-set-custom-properties-from-attributes-mixin'
+import { XdvStringToKebabCase } from '@xiul/xdv-string-to-kebab-case-mixin'
+import { XdvSetCustomPropertiesFromAttributesMixin } from '@xiul/xdv-set-custom-properties-from-attributes-mixin'
 
 export class XdvCheckboxSwitch extends XdvStringToKebabCase(XdvSetCustomPropertiesFromAttributesMixin(LitElement)) {
   static styles = [
