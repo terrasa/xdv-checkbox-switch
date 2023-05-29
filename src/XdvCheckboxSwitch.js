@@ -1,13 +1,12 @@
 import { LitElement, html, css } from 'lit'
-// import { XdvStringToKebabCase } from '../mixins/XdvStringToKebabCase'
-// import { XdvSetCustomPropertiesFromAttributesMixin } from '../mixins/XdvSetCustomPropertiesFromAttributesMixin'
+import '@xiul/xdv-string-to-kebab-case-mixin'
+import '@xiul/xdv-set-custom-properties-from-attributes-mixin'
 
-export class XdvCheckboxSwitch extends LitElement {
+export class XdvCheckboxSwitch extends XdvStringToKebabCase(XdvSetCustomPropertiesFromAttributesMixin(LitElement)) {
   static styles = [
     css`
       :host {
         display: inline-block;
-        /*align-items: center;*/
         position: relative;
       }
 
@@ -104,7 +103,7 @@ export class XdvCheckboxSwitch extends LitElement {
 
     this.isLabel = this.querySelector("[slot='description']")
     this.xdvToggleCheckbox ()
-    //this.xdvSetCustomProperties ('switch')
+    this.xdvSetCustomProperties ('switch')
   }
 
   xdvToggleCheckbox () {    
