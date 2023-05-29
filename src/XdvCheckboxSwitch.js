@@ -95,6 +95,8 @@ export class XdvCheckboxSwitch extends LitElement {
     this.isLabel = false
     this.value = ''
     this.apiValue = ''
+
+    document.addEventListener('xdvCheckboxFalse', this.xdvSetSwitchFalse.bind(this))
   }
 
   firstUpdated () {
@@ -107,7 +109,7 @@ export class XdvCheckboxSwitch extends LitElement {
 
   xdvToggleCheckbox () {    
     this.loaded
-    ? this.checked = this.checked = !this.checked
+    ? this.checked = !this.checked
     : (this.loaded = true, this.value = this.checked)
     
     this.value = this.checked ? `${this.dataset.valueTrue}` : `${this.dataset.valueFalse}`
@@ -120,10 +122,16 @@ export class XdvCheckboxSwitch extends LitElement {
         value: this.value,
         apiValue: this.apiValue,
         id: this.id,
-        checkedItem: this
+        checkedItem: this,
       }
     })
     this.dispatchEvent(xdvCheckboxToggle)
+  }
+
+  xdvSetSwitchFalse (e) {
+    this.checked = !e.disabled.checked
+    this.xdvToggleCheckbox()
+
   }
 
   xdvRandomID () {
