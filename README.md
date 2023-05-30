@@ -5,7 +5,7 @@ This webcomponent follows the [open-wc](https://github.com/open-wc/open-wc) reco
 ## Installation
 
 ```bash
-npm i xdv-checkbox-switch
+npm i @xiul/xdv-checkbox-switch
 ```
 
 ## Usage
@@ -26,7 +26,6 @@ npm i xdv-checkbox-switch
     checked
     disabled
   >
-            <p slot='description'>Imagenes fijas o random</p>
   <xdv-checkbox-switch>
 ```
 
@@ -44,23 +43,23 @@ npm i xdv-checkbox-switch
 | --xdv-switch-bar-width       | Bar width              | 2.75rem          | 
 | --xdv-switch-bar-height      | Bar height             | 1.5rem           |
 | --xdv-switch-bar-radius      | Bar radius             | 1.5625rem        |
-| --xdv-switch-bar-bg          | Bar background         | --grey-inactive  |
-| --xdv-switch-bar-bg-checked  | Bar background checked | --grey-inactive  |
+| --xdv-switch-bar-bg          | Bar background         | #bcbcbc          |
+| --xdv-switch-bar-bg-checked  | Bar background checked | #bcbcbc          |
 
 
-| Custom property  Check              | Description            | Default            |
-|-------------------------------------|------------------------|--------------------|
-| --xdv-switch-item-width-height      | Bar width              | 1.25rem            | 
-| --xdv-switch-item-radius            | Bar height             | 1.5625rem          |
-| --xdv-switch-item-bg                | Bar radius             | --grey-tertiary    |
-| --xdv-switch-item-bg-checked        | Bar radius             | --soft-excel       |
-| --xdv-switch-item-initial-position  | Bar background         | 0.125rem 0.125rem  |
-| --xdv-switch-item-checked-position  | Bar background checked | 1.375rem 0.125rem  |
+| Custom property  Check              | Description                   | Default            |
+|-------------------------------------|-------------------------------|--------------------|
+| --xdv-switch-item-width-height      | Item width and height         | 1.25rem            | 
+| --xdv-switch-item-radius            | Item radius                   | 1.5625rem          |
+| --xdv-switch-item-bg                | Item background               | #707070            |
+| --xdv-switch-item-bg-checked        | Item background checked       | #18723e            |
+| --xdv-switch-item-initial-position  | Item initial position         | 0.125rem 0.125rem  |
+| --xdv-switch-item-checked-position  | Item initial position checked | 1.375rem 0.125rem  |
 
 
 | Custom property  default          | Description            | Default          |
 |-----------------------------------|------------------------|------------------|
-| --text-color                      | Bar width              | --grey-primary   | 
+| --text-color                      | TExt color             | #4a4a4a          | 
 
 
 ## Linting and formatting

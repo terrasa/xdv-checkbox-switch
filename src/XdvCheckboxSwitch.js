@@ -26,7 +26,7 @@ export class XdvCheckboxSwitch extends XdvStringToKebabCase(XdvSetCustomProperti
         height: var(--xdv-switch-bar-height, 1.5rem);
         box-sizing: border-box;
         border-radius: var(--xdv-switch-bar-radius, 1.5625rem);
-        background-color: var(--xdv-switch-bar-bg, var(--grey-inactive));
+        background-color: var(--xdv-switch-bar-bg, #bcbcbc);
         cursor: pointer;
       }
       
@@ -36,19 +36,19 @@ export class XdvCheckboxSwitch extends XdvStringToKebabCase(XdvSetCustomProperti
         height: var(--xdv-switch-item-width-height, 1.25rem);
         box-sizing: border-box;
         border-radius: var(--xdv-switch-item-radius, 1.5625rem);
-        background-color: var(--xdv-switch-item-bg, var(--grey-tertiary));
+        background-color: var(--xdv-switch-item-bg, #707070);
         translate: var(--xdv-switch-item-initial-position, 0.125rem 0.125rem);
         transition: all .3s;
   
       }
   
       :host([checked]) .sw__item {
-        background-color: var(--xdv-switch-item-bg-checked, var(--soft-excel));
+        background-color: var(--xdv-switch-item-bg-checked, #18723e);
         translate: var(--xdv-switch-item-checked-position, 1.375rem 0.125rem);
       }
 
       :host([checked]) .sw__body {
-        background-color: var(--xdv-switch-bar-bg-checked, var(--grey-inactive));
+        background-color: var(--xdv-switch-bar-bg-checked, #bcbcbc);
       }
 
       :host([disabled]) .sw__body {
@@ -62,7 +62,7 @@ export class XdvCheckboxSwitch extends XdvStringToKebabCase(XdvSetCustomProperti
 
       ::slotted(p) {
         margin: 0;
-        color: var(--text-color);
+        color: #4a4a4a;
       } 
     `
   ]
