@@ -95,7 +95,7 @@ export class XdvCheckboxSwitch extends XdvStringToKebabCase(XdvSetCustomProperti
     this.value = ''
     this.apiValue = ''
 
-    document.addEventListener('xdvCheckboxFalse', this.xdvSetSwitchFalse.bind(this))
+    this.getAttribute('detailsListener') && document.addEventListener('xdvCheckboxFalse', this.xdvSetSwitchFalse.bind(this))
   }
 
   firstUpdated () {
